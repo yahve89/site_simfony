@@ -1,0 +1,19 @@
+{% block body %}
+    <div class="container py-5">
+        <h2>{{ title }}</h2>
+        <hr>
+        <div class="pt-3 owl-carousel owl-theme" data-controller="review">
+            {% for review in reviews %}
+                <div class="review row justify-content-md-center">
+                    <div class="col-md-1">
+                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-9">
+                        <p class="text"><i>{{ review.message }}</i></p>
+                        <p>{{ review.author }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

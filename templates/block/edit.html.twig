@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% trans %} edit_block_to {% endtrans %}: {{ block.page.title }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h3>{% trans %} edit_block_to {% endtrans %}: {{ block.page.title }}</h3>
+        <hr>
+        {{ include('block/_form.html.twig', {'button_label': 'btn_update', 'delete_show': true}) }}
+    </div>
+{% endblock %}

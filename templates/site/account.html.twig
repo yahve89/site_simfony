@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container py-5">
+        <h2>Личный кабинет</h2>
+        <hr>
+        <div class="row pt-3">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Все заявки
+                    </div>
+                    <div class="card-body">
+                        <a href="{{ path('page_index') }}" class="btn btn-primary d-block">Перейти</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Управление страницами
+                    </div>
+                    <div class="card-body">
+                        <a href="{{ path('page_index') }}" class="btn btn-primary d-block">Перейти</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Управление Стаьями
+                    </div>
+                    <div class="card-body">
+                        <a href="{{ path('page_index') }}" class="btn btn-primary d-block">Перейти</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

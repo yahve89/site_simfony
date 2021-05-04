@@ -1,0 +1,11 @@
+{% block body %}
+    <div class="container py-5">
+        <h2>{{ section.title }}</h2>
+        <hr>
+        <div class="content">
+            {% autoescape %}
+                {{ section.content|raw }}
+            {% endautoescape %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{{ form_start(form) }}
+    {{ form_row(form._token) }}
+    
+    <div class="form-group">
+        {{ form_label(form.title, 'page_title') }}
+        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+        <small id="page_title" class="form-text text-muted">
+            {{ form_help(form.title) }}
+        </small>
+        <div class="form-error">
+            {{ form_errors(form.title) }}
+        </div>
+    </div>
+    
+    <div class="form-group">
+        {{ form_label(form.description, 'page_description') }}
+        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+        <small id="page_description" class="form-text text-muted">
+            {{ form_help(form.description) }}
+        </small>
+        <div class="form-error">
+            {{ form_errors(form.description) }}
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.alias, 'page_alias') }}
+                {{ form_widget(form.alias, {'attr': {'class': 'form-control'}}) }}
+                <small id="page_alias" class="form-text text-muted">
+                    {{ form_help(form.alias) }}
+                </small>
+                <div class="form-error">
+                    {{ form_errors(form.alias) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.canonical, 'page_canonical') }}
+                {{ form_widget(form.canonical, {'attr': {'class': 'form-control'}}) }}
+                <small id="page_canonical" class="form-text text-muted">
+                    {{ form_help(form.canonical) }}
+                </small>
+                <div class="form-error">
+                    {{ form_errors(form.canonical) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-success">{{ button_label|default('btn_save')|trans }}</button>
+        </div>
+        <div class="col-6 text-md-right">
+            <a class="btn btn-outline-info" href="{{ path('page_index') }}">
+                {% trans %} btn_back_to_list {% endtrans %}
+            </a>
+        </div>
+    </div>
+
+{{ form_end(form) }}
+
+<div class="row">
+    <div class="col-12 mt-1 text-md-right">
+        {% if delete_show|default(false) %}
+               {{ include('page/_delete_form.html.twig') }}
+        {% endif %}
+    </div>
+</div>

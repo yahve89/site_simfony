@@ -1,0 +1,48 @@
+header_address: г. Волгоград, Бульвар 30-летия Победы, д. 21Д
+header_email: info@finnat.ru
+header_phone: +7 (904) 407-33-22
+title_brand_name: FinNAT
+brand_name: <b>Fin</b>NAT
+btn_page_new: Создать страницу
+btn_back_to_list: Вернуться назад
+btn_delete: Удалить
+btn_update: Обновить
+btn_save: Сохранить
+btn_logout: Выход
+btn_login: Вход
+
+placeholder_password: Пароль
+placeholder_email: Email
+
+nav_btn_about: О компании
+nav_btn_contact: Контакты
+nav_btn_price: Цены
+nav_btn_services: Бухгалтерские услуги
+nav_btn_account: Аккаунт
+
+block_sort: Порядок отображения
+block_template: Шаблон
+block_content: Содержание
+block_title: Заголовок
+block_name: Название блока
+block_new: Добавить блок
+
+blocks_no_found: У страницы нет блоков
+pages_no_found: Страницы не найдены
+edit_block_to: Редактировать блок для
+create_block_to: Создать блок для
+
+custom_white: Произвольный белый 
+custom_gtay: Произвольный серый 
+dev_block: Разработка
+review_block: Блок отзывов
+
+new_page: Создать страницу
+edit_page: Редактировать страницу
+
+page_title: Заголовок
+page_description: Описание
+page_alias: Идентификатор страницы
+page_control: Управление страницами
+page_canonical: Конанический адрес
+footer_text: Обращаем Ваше внимание на то, что данный интернет-сайт носит исключительно информационный характер и ни при каких условиях не является публичной офертой, <br>определенной положениями ч. 2 ст. 437 ГК РФ.

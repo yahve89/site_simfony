@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+ 
+    {% block stylesheets %}
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,500i,600,600i&display=swap" rel="stylesheet" />
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+    <div class="container-fluid d-flex justify-content-center mt-md-5 pt-md-5">
+        <div class="col-6 py-5 bg-light-gray">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <span class="company__logo">
+                        <h2><i class="fa fa-key" aria-hidden="true"></i></h2>
+                    </span>
+                    <h4 class="company_title">{% trans %} brand_name {% endtrans %}</h4>
+                </div>
+                <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+                    <div class="container-fluid">
+                        <div class="col-12 pb-2">
+                            <p class="h3">{{ title }}</p>
+                        </div>
+                        <div class="row">
+                            <form action="{{ path('login') }}" method="post" class="col-12">
+                                <div class="form-group">
+                                    <input type="email" id="username" name="_username" value="{{ last_username }}" class="form-control" placeholder="{% trans %} placeholder_email {% endtrans %}">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="_password" id="password" class="form-control" placeholder="{% trans %} placeholder_password {% endtrans %}">
+                                </div>
+
+                                {% if error %}
+                                    <div class="d-block">
+                                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                                    </div>
+                                {% endif %}
+                                
+                                <input type="hidden" name="_target_path" value="/account" />
+                                <div class="text-right">
+                                    <input type="submit" value="{% trans %} btn_login {% endtrans %}" class="btn btn-success">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    <div class="container-fluid text-center mt-md-5">
+        Coded with &hearts; by <a href="mailto:ivan-alexandrov@inbox.ru">Ivan Alexandrov</a></p>
+    </div>
+
+</body>

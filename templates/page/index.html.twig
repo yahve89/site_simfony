@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% trans %} page_control {% endtrans %}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2>{% trans %} page_control {% endtrans %}</h2>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{% trans %} page_title {% endtrans %}</th>
+                    <th>{% trans %} page_description {% endtrans %}</th>
+                    <th>{% trans %} page_alias {% endtrans %}</th>
+                    <th width="50px">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for page in pages %}
+                <tr>
+                    <td>{{ page.title }}</td>
+                    <td>{{ page.description }}</td>
+                    <td>{{ page.alias }}</td>
+                    <td class="text-right">
+                        <a href="{{ path('page_edit', {'id': page.id}) }}">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% if page.blocks %}
+                    {% for item in page.blocks %}
+                        <tr>
+                            <td class="bg-light" colspan="2">
+                                <b>{% trans %} block_name {% endtrans %}:</b> {{ item.title }}
+                            </td>
+                            <td class="bg-light">
+                                <b>{% trans %} block_sort {% endtrans %}:</b> {{ item.sort }}
+                            </td>
+                            <td class="bg-light text-right">
+                                <a href="{{ path('block_edit', {'id': item.id}) }}">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4" class="bg-light">{% trans %} blocks_no_found {% endtrans %}</td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="4" class="bg-light text-right">
+                            <a href="{{ path('block_new', {'id': page.id}) }}">{% trans %} block_new {% endtrans %}</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4" class="bg-light text-right">
+                            <a href="{{ path('block_new', {'id': page.id}) }}">{% trans %} block_new {% endtrans %}</a>
+                        </td>
+                    </tr>
+                {% endif %}
+
+            {% else %}
+                <tr>
+                    <td colspan="4">{% trans %} pages_no_found {% endtrans %}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-right">
+            <a class="btn btn-success" href="{{ path('page_new') }}">{% trans %} btn_page_new {% endtrans %}</a>
+        </div>
+    </div>
+
+{% endblock %}

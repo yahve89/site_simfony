@@ -1,0 +1,119 @@
+@import "font-awesome";
+@import 'bootstrap';
+
+.header {
+    background-color: rgb(170, 172, 173);
+    color: rgb(255, 255, 255);
+    margin-bottom: 0px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+}
+
+.homepage {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('../img/banners/shutterstock_410963449.jpg');
+}
+
+.registration-business,
+.price {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('../img/banners/price.jpg');
+ }
+
+.contact {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/banners/Fotolia_80590083_Subscription_Monthly_M_02.jpg');
+ }
+
+.services {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/banners/Layer-81.jpg');
+ }
+
+hr {
+    border: 0;
+    outline: 0;
+    height: 1px;
+    background: linear-gradient(to right, #A62236, #ffc10700); 
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.bg-light-gray {
+    background-color: #ccc2;
+}
+
+.bg-yellow {
+    background: #A62236;
+}
+
+.bg-yellow a {
+    color: #fff;
+}
+
+.content a {
+    color: #212529;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: solid 2px #fff;
+    padding: 10px;
+    background: #eee;
+}
+
+th {
+    background: #ffc107f2;
+    color: #fff;
+}
+
+footer {
+    background: #555;
+    border-top: solid 1px #fff;
+}
+
+footer p {
+    color: #fff;
+}
+
+footer hr {
+    border: 0;
+    outline: 0;
+    height: 1px;
+    background: linear-gradient(to right, #ffc10700, #afafaf, #ffc10700); 
+}
+
+.mt-7 {
+    margin-top: 7em;
+}
+
+.btn-red {
+    color: #fff;
+    background-color: #aa2e49;
+    border-color: #aa2e49;
+}
+
+.btn-red:hover {
+    color: #fff;
+    background-color: #af435a;
+    border-color: #aa2e49;
+}
+
+.nav-link {
+    text-transform: uppercase;
+}
+
+.btn.btn-link:focus, 
+.btn.btn-link.focus {
+    box-shadow: none;
+}
+
+.review .fa-quote-left {
+    font-size: 3em;
+    color: rgb(170, 172, 173);
+}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% trans %} new_page {% endtrans %}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h3>{% trans %} new_page {% endtrans %}</h3>
+        <hr>
+        {{ include('page/_form.html.twig') }}
+
+    </div>
+{% endblock %}

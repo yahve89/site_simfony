@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    <div class="text-center pt-5">
+        <h1 class="mt-2">Бухгалтерские услуги <br> для среднего и малого бизнеса</h1>
+        <h4 class="mt-4">Ваш бизнес движется вперед. Доверьте учет профессионалам.</h4>
+        <div class="py-5">
+            <a class="btn btn-red my-2 my-sm-0" href="#">Получить консультацию</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+
+    {% for section in blocks %}
+        {%  include 'partal/' ~ section.template ~'.html.twig' %}
+    {% endfor %}
+    
+{% endblock %}

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>{% block title %}{{ title }} - {% trans %} title_brand_name {% endtrans %}{% endblock %}</title>
+
+        {% block stylesheets %}
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,500i,600,600i&display=swap" rel="stylesheet" />
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        <header class="header {{ headerName }}">
+            <div class="bg-yellow">
+                <div class="container py-2">
+                    <div class="row">
+                        <div class="col-md-5 d-none d-xl-block d-lg-block d-md-block">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span>{% trans %} header_address {% endtrans %}</span>    
+                        </div>
+                        <div class="col-md-3 col-5">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <span>{% trans %} header_email {% endtrans %}</span>
+                        </div>
+                        <div class="col-7 col-md-4 text-md-right">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span>{% trans %} header_phone {% endtrans %}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-xl navbar-light bg-light">
+                <div class="container mt-1 mb-1">
+                    <a class="navbar-brand" href="{{ path('homepage') }}">
+                        <i class="fa fa-calculator" aria-hidden="true"></i>
+                        {% trans %} brand_name {% endtrans %}
+                    </a>
+
+                    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#header-menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Show/Hide navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="header-menu">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item mr-3">
+                                <a class="nav-link" href="/about">
+                                    {% trans %} nav_btn_about {% endtrans %}
+                                </a>
+                            </li>
+                            <li class="nav-item mr-3">
+                                <a class="nav-link" href="/services">
+                                    {% trans %} nav_btn_services {% endtrans %}
+                                </a>
+                            </li>
+                            <li class="nav-item mr-3">
+                                <a class="nav-link" href="/price">
+                                    {% trans %} nav_btn_price {% endtrans %}
+                                </a>
+                            </li>
+                            <li class="nav-item mr-3">
+                                <a class="nav-link" href="/contact">
+                                    {% trans %} nav_btn_contact {% endtrans %}
+                                </a>
+                            </li>
+
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <li class="nav-item mr-3">
+                                    <a class="nav-link" href="{{ path('account') }}">
+                                        {% trans %} nav_btn_account {% endtrans %}
+                                    </a>
+                                </li>
+                                <li class="nav-item mr-3">
+                                    <a class="nav-link" href="{{ path('logout') }}">
+                                        {% trans %} btn_logout {% endtrans %}
+                                    </a>
+                                </li>
+                            {% endif %}
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+            {% block header %}{% endblock %}
+
+        </header>
+
+        <main role="main" class="main-section">
+            {% block body %}{% endblock %}
+        </main>
+
+        <footer class="mt-7 text-center py-2">
+            <div class="container-fluid">
+                <p class="pt-2">© Copyright - {{ "now"|date("Y") }}, {% trans %} brand_name {% endtrans %}</p>
+                <hr>
+                <p>{% trans %} footer_text {% endtrans %}</p>
+            </div>
+        </footer>
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </body>
+</html>
