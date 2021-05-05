@@ -1,4 +1,58 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_row(form._token) }}
+    
+    <div class="row align-items-center">
+        <div class="col-9">
+            <div class="form-group">
+                {{ form_label(form.author, 'review_author') }}
+                {{ form_widget(form.author, {'attr': {'class': 'form-control'}}) }}
+                <small id="review_author" class="form-text text-muted">
+                    {{ form_help(form.author) }}
+                </small>
+                <div class="form-error">
+                    {{ form_errors(form.author) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-check pt-3">
+                {{ form_widget(form.status, {'attr': {'class': 'form-check-input'}}) }}
+                {{ form_label(form.status, 'review_status', {'label_attr': {'class': 'form-check-label'}}) }}
+                <div class="form-error">
+                    {{ form_errors(form.status) }}
+                </div>
+            </div>
+        </div>
+    </div>    
+    
+    <div class="form-group">
+        {{ form_label(form.message, 'review_message') }}
+        {{ form_widget(form.message, {'attr': {'class': 'form-control'}}) }}
+        <small id="review_message" class="form-text text-muted">
+            {{ form_help(form.message) }}
+        </small>
+        <div class="form-error">
+            {{ form_errors(form.message) }}
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-success">{{ button_label|default('btn_save')|trans }}</button>
+        </div>
+        <div class="col-6 text-md-right">
+            <a class="btn btn-outline-info" href="{{ path('review_index') }}">
+                {% trans %} btn_back_to_list {% endtrans %}
+            </a>
+        </div>
+    </div>
+
 {{ form_end(form) }}
+
+<div class="row">
+    <div class="col-12 mt-1 text-md-right">
+        {% if delete_show|default(false) %}
+               {{ include('review/_delete_form.html.twig') }}
+        {% endif %}
+    </div>
+</div>

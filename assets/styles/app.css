@@ -117,3 +117,11 @@ footer hr {
     font-size: 3em;
     color: rgb(170, 172, 173);
 }
+
+.form-check-input {
+    margin-top: 0.5rem;
+}
+
+.form-check-label {
+    font-size: 18px;
+}

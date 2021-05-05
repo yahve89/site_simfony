@@ -6,6 +6,7 @@ use App\Entity\Review;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ReviewType extends AbstractType
 {
@@ -13,8 +14,9 @@ class ReviewType extends AbstractType
     {
         $builder
             ->add('author')
-            ->add('message')
-            ->add('addedAt')
+            ->add('message', TextareaType::class, [
+                'attr' => ['rows' => '10']
+            ])
             ->add('status')
         ;
     }

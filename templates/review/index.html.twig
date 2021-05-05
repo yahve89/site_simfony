@@ -1,41 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Review index{% endblock %}
+{% block title %}
+    {% trans %} review_control {% endtrans %}
+{% endblock %}
 
 {% block body %}
-    <h1>Review index</h1>
-
+<div class="container">
+    <h2>{% trans %} review_control {% endtrans %}</h2>
+    <hr>
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Author</th>
-                <th>Message</th>
-                <th>AddedAt</th>
-                <th>Status</th>
-                <th>actions</th>
+                <th>{% trans %} review_author {% endtrans %}</th>
+                <th colspan="2">{% trans %} review_message {% endtrans %}</th>
+                <th>{% trans %} review_addedAt {% endtrans %}</th>
+                <th>{% trans %} review_status {% endtrans %}</th>
+                <th width="50px">&nbsp;</th>
             </tr>
         </thead>
         <tbody>
         {% for review in reviews %}
             <tr>
-                <td>{{ review.id }}</td>
                 <td>{{ review.author }}</td>
-                <td>{{ review.message }}</td>
-                <td>{{ review.addedAt ? review.addedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td colspan="2">{{ review.message }}</td>
+                <td>{{ review.addedAt ? review.addedAt|date('Y-m-d') : '' }}</td>
                 <td>{{ review.status ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('review_show', {'id': review.id}) }}">show</a>
-                    <a href="{{ path('review_edit', {'id': review.id}) }}">edit</a>
+                    <a href="{{ path('review_edit', {'id': review.id}) }}">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">{% trans %} no_records_found {% endtrans %}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('review_new') }}">Create new</a>
+    <div class="text-right">
+        <a class="btn btn-success" href="{{ path('review_new') }}">
+            {% trans %} btn_review_new {% endtrans %}
+        </a>
+    </div>
+</div>
 {% endblock %}
